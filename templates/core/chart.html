@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Bar graph
+{% endblock %}
+
+{% block content %}
+<div id="container"></div>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<script>
+	{% if dataset.type == 'column' %}
+	  Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '{{ dataset.title }}'
+        },
+        xAxis: {
+           categories: [
+                {% for entry in dataset.categories %}
+                    '{{ entry }}'{% if not forloop.last %} , {% endif %}{% endfor %}
+            ]
+        },
+        series : [
+        {% for ser in dataset.series %} 
+            {
+            name : '{{ ser.name }}' , 
+            data : [
+                {% for entry in ser.data %}{{ entry }}{% if not forloop.last %}, {% endif %}{% endfor %}
+            ] ,  
+            color : '{{ ser.color }}'
+            } {% if not forloop.last %} , {% endif %} 
+        {% endfor %} 
+		]
+		});
+		
+		{% endif %}
+</script>
+{% endblock %}

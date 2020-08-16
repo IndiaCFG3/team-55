@@ -3,7 +3,7 @@
 {% block title %}Monthly Chart{% endblock %}
 
 {% block extra_head %} 
-  
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -15,28 +15,68 @@
 
 {% block content %}
   <div class="container-fluid m-0 p-0">
-    <div class="jumbotron m-0 p-0">
+    <div class="m-0 p-0">
       <div class="row m-0 p-0">
         <div class="col-4 m-0 p-0  h-100">
+
           <nav class="navbar navbar-expand-md bg-dark navbar-dark">
             <!-- Brand -->
-            <a class="navbar-brand " href="#">Persons Here</a>
+            <a class="navbar-brand " href="#">Select the Chart</a>
           </nav>
           <ul class="list-group">
-            <li class="list-group-item active">HOD</li>
-            <li class="list-group-item">IT GUY</li>
-            <li class="list-group-item">Add More </li>
-            <li class="list-group-item">.... </li>
+            <a class="list-group-item"  href="">Pie Chart</a>
+            <a class="list-group-item" href="{% url 'chart' %}">Bar Chat</a>
+            <a class="list-group-item" href="">time series chart</a>
           </ul>
-          <button type="button" class="btn btn-dark bg-dark ">download</button>
+          <button type="button" class="btn btn-dark bg-dark " style="margin-left: 25px">download</button>
           <!-- persons here-->
+
+
+
+          
+
+          <div class="w3-container" style="margin:5px">
+        <div class="w3-dropdown-hover">
+      <button class="w3-button w3-black">Placement</button>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+           <input type="text" id="fname" name="fname" placeholder="LDC name" class="w3-bar-item w3-button">  
+            <input type="text" id="fname" name="fname" placeholder="Batch Code" class="w3-bar-item w3-button"> 
+            <input type="text" id="fname" name="fname" placeholder="Course name" class="w3-bar-item w3-button"> 
         </div>
+       </div>
+      </div>
+
+      <div class="w3-container" style="display: inline-block ;margin:5px;">
+        <div class="w3-dropdown-hover">
+      <button class="w3-button w3-black">Batches</button>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+          <input type="text" id="fname" placeholder="Centre name" name="Centre_name" class="w3-bar-item w3-button"> 
+            <input type="text" id="fname" placeholder="Batch type" name="Batch_type" class="w3-bar-item w3-button">
+            <input type="text" id="fname" placeholder="start date" name="start_date" class="w3-bar-item w3-button">
+        </div>
+       </div>
+      </div>
+
+
+      <div class="w3-container" style="display: block ;margin:5px;">
+        <div class="w3-dropdown-hover">
+      <button class="w3-button w3-black">Passout</button>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+           <input type="text" id="fname" name="fname" placeholder="chart name" name="chart_name_passout" class="w3-bar-item w3-button">
+            <input type="text" id="fname" name="fname" placeholder="Region" name="Region" class="w3-bar-item w3-button">
+            
+        </div>
+       </div>
+      </div>
+
+        </div>
+
         <div class="col-6 bg-secondary">
           <!-- chart area-->
           <div class="container">
             <div class="row my-3">
               <div class="col">
-                <h4>Charts Goes Here</h4>
+                <h4>Charts</h4>
               </div>
             </div>
             <div class="row my-2">
@@ -92,13 +132,16 @@
           <input id="datepicker" />
 
 
-          <label>To </label>
+          <label>To date</label>
           <input id="datepicker2" />
           <script>
             $('#datepicker').datepicker({
               uiLibrary: 'bootstrap4'
             });
-          
+
+            $('#datepicker2').datepicker({
+              uiLibrary: 'bootstrap4'
+            });
 
           
 
@@ -222,7 +265,7 @@
 
           // donut 1
           var chDonutData1 = {
-          labels: ['Bootstrap', 'Popper', 'Other'],
+          labels: ['mumbai', 'hyderabad', 'chennai'],
           datasets: [
           {
           backgroundColor: colors.slice(0, 3),
@@ -368,5 +411,8 @@
         </div>
       </div>
     </div>
+
+
+
 
 {% endblock %}
