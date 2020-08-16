@@ -3,9 +3,6 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-# def user_directory_path(instance, filename):
-# 	# file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-# 	return 'user_{0}/profilePicture/{1}'.format(instance.id, filename)
 
 class MyAccountManager(BaseUserManager):
 	def create_user(self, email, username, first_name, last_name, password=None):
@@ -56,7 +53,7 @@ class User(AbstractBaseUser):
 	# experience_months		= models.IntegerField(null=False, default=0)
 	# experience_years		= models.IntegerField(null=False, default=0)
 	# scale_of_pay			= models.IntegerField(null=False, default=0)
-	# profile_photo			= models.FileField(blank=True,upload_to=user_directory_path)
+	user_type				= models.CharField(max_length=20, blank=True, choices=[("IT", "IT"), ("HOD", "HOD"), ("HR", "HR"), ("OPERATIONS","OPERATIONS"), ("ACCOUNT", "ACCOUNT"), ("AUDIT", "AUDIT"), ("ENC", "ENC"), ("IMPACT SUPPORT", "IMPACT SUPPORT")])
 
     
 

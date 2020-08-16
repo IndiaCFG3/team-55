@@ -126,11 +126,11 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'projectname/static')
+    os.path.join(BASE_DIR, 'team55/static')
 ]
 
 
-MEDIA_ROOT= os.path.join(BASE_DIR, 'projectname/media/')
+MEDIA_ROOT= os.path.join(BASE_DIR, 'team55/media/')
 MEDIA_URL= "/media/"
 
 # Messages
