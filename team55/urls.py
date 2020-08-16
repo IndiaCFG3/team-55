@@ -23,7 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
     path('', include('core.urls')),
-    path('visuals/', include('visuals.urls'))
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 
 handler404 = 'core.views.error_404_view'

@@ -53,7 +53,7 @@ class User(AbstractBaseUser):
 	# experience_months		= models.IntegerField(null=False, default=0)
 	# experience_years		= models.IntegerField(null=False, default=0)
 	# scale_of_pay			= models.IntegerField(null=False, default=0)
-	# user_type				= models.CharField(max_length=20, blank=True, choices=[("IT", "IT"), ("HOD", "HOD"), ("HR", "HR"), ("OPERATIONS","OPERATIONS"), ("ACCOUNT", "ACCOUNT"), ("AUDIT", "AUDIT"), ("ENC", "ENC"), ("IMPACT SUPPORT", "IMPACT SUPPORT")])
+	user_type				= models.CharField(max_length=20, blank=True, choices=[("IT", "IT"), ("HOD", "HOD"), ("HR", "HR"), ("OPERATIONS","OPERATIONS"), ("ACCOUNT", "ACCOUNT"), ("AUDIT", "AUDIT"), ("ENC", "ENC"), ("IMPACT SUPPORT", "IMPACT SUPPORT")])
 
     
 

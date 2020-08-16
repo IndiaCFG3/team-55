@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'account',
     'core',
-    'visuals',
 
 ]
 

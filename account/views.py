@@ -46,10 +46,10 @@ def login(request):
 
 		if user is not None:
 			auth.login(request, user)
-			messages.success(request, 'You are now logged in')
-			return redirect('home')
+			# messages.success(request, 'You are now logged in')
+			return redirect('display-chart')
 		else:
-			messages.error(request, 'Invalid credentials')
+			# messages.error(request, 'Invalid credentials')
 			return redirect('login')
 	else:
 		return render(request, 'accounts/login.html')
@@ -57,5 +57,5 @@ def login(request):
 def logout(request):
 	if request.method == 'POST':
 		auth.logout(request)
-		messages.success(request, 'You are now logged out')
-		return redirect('login')
+		# messages.success(request, 'You are now logged out')
+		return redirect('home')

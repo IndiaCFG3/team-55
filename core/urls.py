@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('display-chart', views.display_chart, name='display-chart'),
     path('upload-csv/', views.upload_csv, name='upload-csv'),
 ]
