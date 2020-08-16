@@ -1,16 +1,37 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %} Upload CSV {% endblock %}
+
+{% block extra_head %}
+	<link rel="stylesheet" href="{% static 'css/core/csv_upload.css' %}">
+{% endblock %}
 
 {% block content %}
 	{% include 'partials/_alerts.html' %}
-	<div class="container">
-		<form action="" method="POST" enctype="multipart/form-data">
-			{% csrf_token %}
-			<label for="file1"> Upload a file</label>
-			<input type="file" id="file1" name="file">
-			<small>Only accepts CSV files</small>
-			<button type="submit">Upload</button>
-			</form>
-	</div>
+    <div style="text-align: center; margin-top:2%;">
+        {% if label %}<h2>{{ label.capitalize }}{% endif %}
+        {% if filePathName %}
+        <img class="img-fluid img-thumbnail" src={{filePathName}} alt='imagename' width="100" height="100"></h2>
+        {% endif %}
+    </div>
+    <form method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <div class="frame">
+            <div class="center">
+                <div class="title">
+                    <h1 id="drop-file">Drop file to upload</h1>
+                </div>
+        
+                <div class="dropzone">
+                    <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                    <input type="file" class="upload-input" name="file" id="csvfile" required/>
+                </div>
+        
+                <button type="submit" class="btn" name="uploadbutton">Upload file</button>
+        
+            </div>
+        </div>
+	</form>
 {% endblock %}
